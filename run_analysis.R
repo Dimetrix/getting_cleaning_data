@@ -2,25 +2,25 @@ library(dplyr)
 
 features <- read.table("./UCI HAR Dataset/features.txt")
 
-#process train data
+#processing train data
 subject_train <- read.table(file = "./UCI HAR Dataset/train/subject_train.txt", col.names = "subject")
 x_train <- read.table(file = "./UCI HAR Dataset/train/X_train.txt", col.names = features$V2)
 y_train <- read.table(file = "./UCI HAR Dataset/train/y_train.txt", col.names = "activity")
 train_merged <- cbind(x_train, y_train, subject_train)
 
-#process test data
+#processing test data
 subject_test <- read.table(file = "./UCI HAR Dataset/test/subject_test.txt", col.names = "subject")
 x_test <- read.table(file = "./UCI HAR Dataset/test/X_test.txt", col.names = features$V2)
 y_test <- read.table(file = "./UCI HAR Dataset/test/y_test.txt", col.names = "activity")
 test_merged <- cbind(x_test, y_test, subject_test)
 
-#unite train and test data
+#uniting train and test data
 merged <- rbind(train_merged, test_merged)
 
-#remove not needed objects
+#removing not needed objects
 rm(features, subject_train, x_train, y_train, train_merged, subject_test, x_test, y_test, test_merged)
 
-#leave only the measurements on the mean and standard deviation.
+#leaving only the measurements on the mean and standard deviation.
 #these are the ones that have 'mean' or 'std' in there names
 merged <- merged[ , grepl("mean|std|activity|subject", names(merged))]
 
