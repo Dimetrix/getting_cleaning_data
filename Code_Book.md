@@ -1,4 +1,5 @@
 Next variables are used in final file (m_ means median of apropriate metric):
+
 variable|domain signals|acceleration signals|source of signal|Jerk signal|magnitude signal|type of value
 --------|--------------|--------------------|----------------|-----------|----------------|-------------
 m_tBodyAccMeanXYZ|time|body|accelerometer|no|no|mean
